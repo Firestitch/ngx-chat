@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutGap="10px" class="chat">
+  <div class="chat-conversations" fxLayout="column">
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+      <div class="actions"></div>
+      <div class="title" fxFlex fxLayoutAlign="center start"></div>
+      <div class="actions">
+          <a><mat-icon>mode_edit</mat-icon></a>
+      </div>
+    </div>
+    <div class="container-content">
+      <fs-chat-conversations (changeConversation)="loadConversation($event)" [fsConfig]="{ expandConversations: expandConversations }"></fs-chat-conversations>
+    </div>
+  </div>
+  <div class="chat-conversation">
+    <fs-chat-conversation [conversationId]="conversation_id"></fs-chat-conversation>
+  </div>
+</div>

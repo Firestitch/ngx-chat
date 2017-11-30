@@ -1,0 +1,39 @@
+:host {
+  mat-form-field{
+    width: 100%;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .toolbar {
+    padding: 0 12px;
+    min-height: 40px;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .container-content {
+    border-top: 1px solid #e2e2e2;
+    padding: 0 16px;
+  }
+
+  mat-list {
+    padding: 0;
+    mat-list-item {
+      cursor: pointer;
+      /deep/ .mat-list-item-content {
+        padding: 0;
+        height: auto;
+        min-height: 60px;
+      }
+    }
+  }
+}
+
+.avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}

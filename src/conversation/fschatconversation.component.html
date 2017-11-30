@@ -1,0 +1,139 @@
+<div class="container-conversation" fxLayout="column" fxFlexFill>
+  <div class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+    <div class="actions">
+        <a *ngIf="fsConfig.backButton" (click)="selectConversation(null)"><mat-icon>keyboard_arrow_left</mat-icon></a>
+    </div>
+    <div class="title" fxFlex fxLayoutAlign="center start">{{ fsConfig.topTitle }}</div>
+    <div class="actions">
+        <a *ngIf="fsConfig.launchButton"><mat-icon>launch</mat-icon></a>
+        <a [matMenuTriggerFor]="actions"><mat-icon>more_vert</mat-icon></a>
+        <mat-menu #actions="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item>Add Participant</button>
+            <button mat-menu-item>Edit Participants</button>
+            <button mat-menu-item>Mute</button>
+            <button mat-menu-item>Open Conversation</button>
+            <button mat-menu-item>Leave Conversation</button>
+            <button mat-menu-item>Delete Conversation</button>
+        </mat-menu>
+    </div>
+  </div>
+
+  <div class="conversation">
+    <div class="messages">
+
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center"><img class="avatar" src="/assets/user-avatar.jpg"></div>
+          <div class="text">incoming</div><div class="gap"></div>
+      </div>
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div><div class="text">outgoing</div>
+      </div>
+
+      <div class="date">Yesterday</div>
+
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center">
+              <img class="avatar" src="/assets/user-avatar.jpg">
+          </div>
+          <div class="text">
+            Test text Test text Test text Test text Test text Test text Test text Test text Test text Test text
+            Test text Test text Test text Test text Test text Test text Test text Test text Test text Test text
+          </div>
+          <div class="gap"></div>
+      </div>
+
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div>
+        <div class="text">
+            And the Raven, never flitting, still is sitting, still is sitting
+            On the pallid bust of Pallas just above my chamber door;
+            And his eyes have all the seeming of a demon’s that is dreaming,
+            And the lamp-light o’er him streaming throws his shadow on the floor;
+            And my soul from out that shadow that lies floating on the floor
+            Shall be lifted—nevermore!
+        </div>
+      </div>
+
+      <div class="date">9:24am</div>
+
+      <div class="message incoming" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+          <div fxLayoutAlign="start center">
+              <img class="avatar" src="/assets/user-avatar.jpg">
+          </div>
+          <div class="text">
+            Hey John how are you doing?
+          </div>
+          <div class="gap"></div>
+      </div>
+
+      <div class="message outgoing" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="10px">
+        <div class="gap"></div>
+        <div class="text">
+            I'm good, thanks, how have you been?
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="start start" class="chat-input-container" fxLayoutGap="10px">
+    <mat-form-field fxFlex floatPlaceholder="never">
+      <textarea matInput matTextareaAutosize></textarea>
+      <mat-placeholder>Type your message</mat-placeholder>
+    </mat-form-field>
+    <div class="input-actions">
+        <a><mat-icon>photo</mat-icon></a>
+    </div>
+    <div>
+      <button mat-raised-button color="primary">Send</button>
+    </div>
+  </div>
+</div>

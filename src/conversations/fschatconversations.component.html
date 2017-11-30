@@ -1,0 +1,30 @@
+<div>
+  <div fxLayoutAlign="center start" class="filters">
+    <mat-form-field fxFlex floatPlaceholder="never">
+      <input matInput>
+      <mat-placeholder><mat-icon>search</mat-icon>Search Messages</mat-placeholder>
+    </mat-form-field>
+  </div>
+
+  <div class="conversations" [ngClass]="{ expanded: fsConfig.expandConversations }">
+    <mat-list>
+      <ng-container *ngFor="let conversation of mockConversations">
+        <mat-list-item (click)="selectConversation(conversation.id)" [ngClass]="{ active: conversation.id == conversation_id }">
+            <div fxLayout="row" fxFlexFill fxLayoutAlign="start center" fxLayoutGap="10px">
+              <div fxLayoutAlign="start center">
+                <img class="avatar" src="{{ conversation.avatar }}">
+              </div>
+              <div fxLayout="column" fxFlex>
+                <strong>{{ conversation.first_name }} {{ conversation.last_name }}</strong>
+                <span>{{ conversation.lastMessage }}</span>
+              </div>
+              <div fxFlexAlign="start">
+                <span>{{ conversation.dateAgo }}</span>
+              </div>
+            </div>
+          </mat-list-item>
+          <mat-divider></mat-divider>
+      </ng-container>
+    </mat-list>
+  </div>
+</div>

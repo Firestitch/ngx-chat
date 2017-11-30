@@ -1,0 +1,30 @@
+<div *ngIf="isParticipants">
+  <fs-participants (onChange)="participantsCallback($event)"></fs-participants>
+</div>
+<div *ngIf="!isParticipants">
+  <div *ngIf="!conversation_id" class="chat-conversations" fxLayout="column">
+    <div class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+      <div class="actions">
+          <a *ngIf="!expandConversations" (click)="expandConversations = true">See All Messages</a>
+      </div>
+      <div class="title" fxFlex fxLayoutAlign="center start"></div>
+      <div class="actions">
+          <a *ngIf="!expandConversations" (click)="participantsShow()">New Message</a>
+          <a *ngIf="expandConversations" (click)="expandConversations = false"><mat-icon>mode_edit</mat-icon></a>
+      </div>
+    </div>
+
+    <div class="container-content">
+      <fs-chat-conversations (changeConversation)="loadConversation($event)" [fsConfig]="{ expandConversations: expandConversations }"></fs-chat-conversations>
+    </div>
+    <div *ngIf="!expandConversations" class="toolbar" fxLayoutAlign="start center">
+        <div class="actions">
+            <a>Mark all as read</a>
+        </div>
+    </div>
+
+  </div>
+  <div *ngIf="conversation_id" class="chat-conversation">
+    <fs-chat-conversation [conversationId]="conversation_id" (changeConversation)="loadConversation($event)" [fsConfig]="{ backButton: true, launchButton: true }"></fs-chat-conversation>
+  </div>
+</div>

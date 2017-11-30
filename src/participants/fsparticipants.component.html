@@ -1,0 +1,44 @@
+<div fxLayout="column">
+  <div class="toolbar" fxLayout="row" fxLayoutAlign="start center">
+    <div class="actions">
+        <a (click)="save(null)"><mat-icon>keyboard_arrow_left</mat-icon></a>
+    </div>
+    <div class="title" fxFlex fxLayoutAlign="center start">Add/Edit Participant</div>
+    <div class="actions"></div>
+  </div>
+
+  <div class="container-content">
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+      <mat-form-field>
+        <input matInput type="text" #input="ngModel" [(ngModel)]="user" (ngModelChange)="add($event)" name="user" [matAutocomplete]="userAutocompleteInput">
+        <mat-autocomplete #userAutocompleteInput="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredOptions | async" [value]="item">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="10px">
+              <img class="avatar" src="{{ item.avatar }}">
+              <span>{{ item.name }}</span>
+              <em><{{ item.email }}></em>
+            </div>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" (click)="save(users)">ADD</button>
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let user of users">
+          <div fxLayout="row" fxFlexFill fxLayoutAlign="start center" fxLayoutGap="10px">
+              <div fxLayoutAlign="start center">
+                <img class="avatar" src="{{ user.avatar }}">
+              </div>
+              <div fxLayout="column" fxFlex>
+                <span>{{ user.name }}</span>
+              </div>
+              <div>
+                <a (click)="remove(user.value)"><mat-icon>clear</mat-icon></a>
+              </div>
+          </div>
+        </mat-list-item>
+    </mat-list>
+  </div>
+</div>
