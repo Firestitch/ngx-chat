@@ -1,0 +1,87 @@
+:host {
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.87);
+
+  .container-conversation {
+
+    height: 100%;
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .avatar {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+
+    .toolbar {
+      padding: 0 12px;
+      min-height: 40px;
+    }
+
+    .chat-input-container {
+      padding: 10px 16px;
+
+      mat-form-field {
+        /deep/ .mat-input-infix {
+          border: none;
+        }
+      }
+
+      .input-actions {
+        margin-left: -30px;
+        z-index: 10;
+        background-color: white;
+      }
+    }
+
+    .conversation {
+      border-top: 1px solid #e2e2e2;
+      overflow-y: auto;
+      height: 100%;
+
+      .messages {
+        padding: 0 16px;
+
+        .message {
+
+          width: 100%;
+          margin: 5px 0;
+
+          .text {
+            padding: 6px 8px;
+            border-radius: 16px;
+          }
+
+          &.incoming {
+            .text {
+              background-color: #ddeef7;
+            }
+          }
+          &.outgoing {
+            .text {
+              color: white;
+              background-color: #4393cb;
+            }
+          }
+
+          .gap {
+            width: 30px;
+          }
+        }
+
+        .date {
+          width: 100%;
+          text-align: center;
+          color: #888;
+          font-size: 13px;
+          margin: 8px 0;
+        }
+      }
+    }
+  }
+}

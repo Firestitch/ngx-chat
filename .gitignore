@@ -33,3 +33,11 @@ dist/*
 
 # Playground tmp files
 .playground
+/.tmp
+/build
+/dist
+/node_modules
+/.playground
+/dll
+/package
+/package-lock.json
