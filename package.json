@@ -27,19 +27,22 @@
     "copy:build": "cpx -v \"src/**/*\" \"build\"",
     "copy:styles": "cpx -v \"build/**/*.css\" \"package\"",
     "copy:templates": "cpx -v \"build/**/*.html\" \"package\"",
-    "package": "npm-run-all -s clean:build clean:package copy:build build:sass package:replace-scss package:aot package:build copy:styles copy:templates package:minify clean:build",
+    "copy:package": "cpx -v \"package.json\" \"package\"",
+    "package": "npm-run-all -s clean:build clean:package copy:build build:sass package:replace-scss package:aot package:build copy:styles copy:templates package:minify clean:build package:functions",
+    "package:functions": "tsc -p tsconfig.es6.json",
     "package:aot": "ngc -p tsconfig.aot.json",
     "package:replace-scss": "node ./tools/replace-scss.js",
     "package:dev": "webpack --config=tools/webpack.dev.js --progress --profile --watch",
     "package:minify": "uglifyjs package/index.js --source-map --compress --mangle --screw-ie8 --output package/index.min.js",
     "package:build": "webpack --config=tools/webpack.package.js --progress --profile",
-    "demo": "npm-run-all -s clean:demo compodoc demo:webpack",
+    "demo:build": "npm-run-all -s clean:demo compodoc demo:webpack",
     "demo:serve": "http-server ./demo",
     "demo:webpack": "webpack --config=tools/webpack.demo.js --progress --profile",
     "build:sass": "node-sass -r build/ -o build/ || true",
     "serve": "webpack-dev-server --config=tools/webpack.playground.js --progress --profile --watch",
     "lint": "tslint 'src/**/*.ts' -p ./tslint.json",
-    "compodoc": "./node_modules/.bin/compodoc src --disableInternal --disablePrivate --disableGraph --disableSourceCode --hideGenerator --output docs --tsconfig tsconfig.compodoc.json"
+    "compodoc": "./node_modules/.bin/compodoc src --disableInternal --disablePrivate --disableGraph --disableSourceCode --hideGenerator --output docs --tsconfig tsconfig.compodoc.json",
+    "postinstall": "npm rebuild node-sass"
   },
   "devDependencies": {
     "@angular/animations": "^5.2.4",
@@ -48,7 +51,7 @@
     "@angular/compiler": "^5.2.4",
     "@angular/compiler-cli": "^5.2.4",
     "@angular/core": "^5.2.4",
-    "@angular/flex-layout": "2.0.0-beta.10-4905443",
+    "@angular/flex-layout": "5.0.0-beta.14",
     "@angular/forms": "^5.2.4",
     "@angular/http": "^5.2.4",
     "@angular/material": "^5.2.0",
@@ -126,14 +129,10 @@
     "node": ">=6.0.0"
   },
   "peerDependencies": {
-    "@angular/core": "^4.0.0",
-    "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
-  },
-  "dependencies": {
-    "tsmodels": "^0.2.7",
-    "@angular/material": "5.0.1",
-    "@angular/flex-layout": "^5.0.0-beta.13",
-    "@firestitch/common": "^0.2.7"
+    "rxjs": ">=5.1.0",
+    "zone.js": ">=0.8.4",
+    "@angular/material": ">=5.2.0",
+    "@angular/flex-layout": ">=5.0.0-beta.14",
+    "@firestitch/common": ">=0.2.7"
   }
 }
